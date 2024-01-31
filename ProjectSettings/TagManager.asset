@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,10 +14,10 @@ TagManager:
   - UI
   - Ground
   - Climb
-  - BaclGround
+  - BackGround
   - Player
-  - 
-  - 
+  - Mushroom
+  - Enemy
   - 
   - 
   - 
@@ -50,9 +51,12 @@ TagManager:
   - name: Platforms
     uniqueID: 3974111667
     locked: 0
-  - name: Player
-    uniqueID: 914451041
+  - name: Enmey
+    uniqueID: 3174355117
     locked: 0
   - name: Climbing
     uniqueID: 1743685797
+    locked: 0
+  - name: Player
+    uniqueID: 914451041
     locked: 0
