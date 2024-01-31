@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,19 +12,21 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float baseSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float climbSpeed = 5f;
 
-    private float playerShape = 1;
     private Vector2 moveInput;
     private Rigidbody2D noaRB2D;
     private Animator noaAnimator;
     private CapsuleCollider2D noaCollider2D;
-   
+    private float playerShape = 1;
+    private float gravityScaleAtStart;
+
     void Start()
     {
         noaRB2D = GetComponent<Rigidbody2D>();
         noaAnimator = GetComponent<Animator>();
         noaCollider2D = GetComponent<CapsuleCollider2D>();
-
+        gravityScaleAtStart = noaRB2D.gravityScale;
     }
 
     // Update is called once per frame
@@ -31,7 +34,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Run();
         FlipSprite();
+        ClimbLadder();
     }
+
 
     void OnMove(InputValue value)
     {
@@ -69,4 +74,18 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+     void ClimbLadder()
+    {
+        if(!noaCollider2D.IsTouchingLayers(LayerMask.GetMask("Climb")))
+        {
+            noaRB2D.gravityScale = gravityScaleAtStart;
+            return;
+        }
+
+        Vector2 climbVelocity = new Vector2(noaRB2D.velocity.x, moveInput.y * climbSpeed);
+        noaRB2D.velocity = climbVelocity;
+        noaRB2D.gravityScale = 0f;
+        bool isClimbing = moveInput.y != 0 ? true: false;
+        noaAnimator.SetBool("isClimbing", isClimbing);
+    }
 }

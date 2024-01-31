@@ -12,9 +12,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - Climb
+  - BaclGround
+  - Player
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 914451041
+    locked: 0
+  - name: Climbing
+    uniqueID: 1743685797
     locked: 0
