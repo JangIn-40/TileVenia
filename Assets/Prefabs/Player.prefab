@@ -14,12 +14,11 @@ GameObject:
   - component: {fileID: 7328176884843088402}
   - component: {fileID: -572066951445376234}
   - component: {fileID: 2667727406645842008}
-  - component: {fileID: 1783810232489225451}
   - component: {fileID: 5066778167713613058}
   - component: {fileID: 1763888519687749075}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +99,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 914451041
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1507067340, guid: d0f9f4e614b8dbb4b84cb684cc9412d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -176,21 +175,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43897176, y: 0.12216544}
   m_EdgeRadius: 0
---- !u!114 &1783810232489225451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2386537913946179186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!114 &5066778167713613058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +221,8 @@ MonoBehaviour:
   jumpSpeed: 24
   climbSpeed: 5
   deathKick: {x: 20, y: 20}
+  bullet: {fileID: 0}
+  gun: {fileID: 0}
 --- !u!1 &7000308905262092206
 GameObject:
   m_ObjectHideFlags: 0

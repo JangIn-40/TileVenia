@@ -21,7 +21,7 @@ TagManager:
   - Enemy
   - Hazard
   - Bullet
-  - 
+  - Interactavle
   - 
   - 
   - 
@@ -57,6 +57,9 @@ TagManager:
     locked: 0
   - name: Hazrd
     uniqueID: 2000799033
+    locked: 0
+  - name: Interactavle
+    uniqueID: 2808487771
     locked: 0
   - name: Enmey
     uniqueID: 3174355117

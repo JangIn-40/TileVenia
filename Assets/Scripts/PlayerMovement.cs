@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D noaBodyCollider;
     BoxCollider2D noaFeetCollider;
     
-    
     private float playerShape = 1;
     private float gravityScaleAtStart;
     private bool isAlive = true;
@@ -36,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         gravityScaleAtStart = noaRB2D.gravityScale;
     }
 
-    void Update()
+    void LateUpdate()
     {   
         if(isAlive == false)
             return;
@@ -119,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
             noaAnimator.SetTrigger("Dying");
             isAlive = false;
             noaRB2D.velocity = deathKick;
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
     }
 
