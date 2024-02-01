@@ -35,7 +35,8 @@ Transform:
   m_LocalPosition: {x: -1.77, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9144413804051005649}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,7 +100,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 914451041
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 1507067340, guid: d0f9f4e614b8dbb4b84cb684cc9412d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,8 +147,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.054890513, y: 0}
-  m_Size: {x: 0.63048005, y: 1}
+  m_Offset: {x: -0.04018843, y: 0}
+  m_Size: {x: 0.6598842, y: 1}
   m_Direction: 0
 --- !u!61 &2667727406645842008
 BoxCollider2D:
@@ -158,11 +159,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 2386537913946179186}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fc0cf72097312a040a61a6267b37a9de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010552049, y: -0.44055092}
+  m_Offset: {x: -0.005651355, y: -0.44218457}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -173,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46184182, y: 0.11889815}
+  m_Size: {x: 0.43897176, y: 0.12216544}
   m_EdgeRadius: 0
 --- !u!114 &1783810232489225451
 MonoBehaviour:
@@ -235,3 +236,35 @@ MonoBehaviour:
   baseSpeed: 5
   jumpSpeed: 24
   climbSpeed: 5
+  deathKick: {x: 20, y: 20}
+--- !u!1 &7000308905262092206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9144413804051005649}
+  m_Layer: 9
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9144413804051005649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7000308905262092206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.216, y: -0.216, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2386537913946179191}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

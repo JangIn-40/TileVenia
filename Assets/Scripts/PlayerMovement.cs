@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,12 +12,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float baseSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] Vector2 deathKick = new Vector2 (10f, 10f);
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
 
-    private Vector2 moveInput;
-    private Rigidbody2D noaRB2D;
-    private Animator noaAnimator;
-    private CapsuleCollider2D noaBodyCollider;
-    private BoxCollider2D noaFeetCollider;
+    Vector2 moveInput;
+    Rigidbody2D noaRB2D;
+    Animator noaAnimator;
+    CapsuleCollider2D noaBodyCollider;
+    BoxCollider2D noaFeetCollider;
+    
+    
     private float playerShape = 1;
     private float gravityScaleAtStart;
     private bool isAlive = true;
@@ -54,13 +58,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isAlive == false)
             return;
-        UnityEngine.Debug.Log("점프!");
-        if(!noaFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if(!noaFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground", "Climb")))
             return;
 
         if(value.isPressed )
         {
             noaRB2D.velocity += new Vector2(0f , jumpSpeed);
+        }
+    }
+
+    void OnFire(InputValue value)
+    {
+        if(isAlive == false)
+            return;
+
+        if(value.isPressed)
+        {
+            Instantiate(bullet, gun.position, transform.rotation);
         }
     }
 
@@ -100,10 +114,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        if(noaBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if(noaBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazard")))
         {
             noaAnimator.SetTrigger("Dying");
             isAlive = false;
+            noaRB2D.velocity = deathKick;
         }
     }
+
+
 }

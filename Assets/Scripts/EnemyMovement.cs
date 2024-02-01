@@ -7,14 +7,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
 
     Rigidbody2D rb2D;
-    BoxCollider2D boxCollider2D;
 
-    private float enmeyShape = 1;
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -27,7 +24,9 @@ public class EnemyMovement : MonoBehaviour
     {
         moveSpeed = -moveSpeed;
         FlipEnemySprite();
+
     }
+
     void FlipEnemySprite()
     {
         transform.localScale = new Vector2(-(Mathf.Sign(rb2D.velocity.x)), 1f);
